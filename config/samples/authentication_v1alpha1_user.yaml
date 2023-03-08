@@ -1,0 +1,12 @@
+apiVersion: authentication.kubeguard.dev/v1alpha1
+kind: User
+metadata:
+  labels:
+    app.kubernetes.io/name: user
+    app.kubernetes.io/instance: user-sample
+    app.kubernetes.io/part-of: proxyserver
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: proxyserver
+  name: user-sample
+spec:
+  # TODO(user): Add fields here

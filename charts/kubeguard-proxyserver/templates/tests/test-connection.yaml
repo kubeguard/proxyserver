@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "kubeguard-proxyserver.fullname" . }}-test-connection"
+  labels:
+    {{- include "kubeguard-proxyserver.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "kubeguard-proxyserver.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
